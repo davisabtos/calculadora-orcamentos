@@ -10,90 +10,115 @@
     
     <link rel="icon" type="image/x-icon" href="style/img/logo.svg">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Darumadrop+One&family=Monomakh&display=swap');
-        body{
-            font-family: 'Comfortaa';
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        img{
+
+        body{
+            overflow-x: hidden;
+        }
+
+        #logoName{
             width:100%;
             height:auto;
-            max-width:250px;
+            max-width: 10rem;
+        }
+
+        #logo{
+            width:100%;
+            height:auto;
+            max-width: 5rem;
+        }
+
+        h3, label{
+            font-size: 125%;
         }
     </style>
 </head>
-<body class="text-light" bg-black>
+<body class="text-light bg-black">
     <header class="bg-black text-center">
-        <div class="container p-4" >
-            <img src="style/img/logo-name.svg" alt="">
+        <div class="container d-flex justify-content-center align-items-end p-4">
+            <img src="style/img/logo.svg" alt="logo" id="logo" class="me-4">
+            <img src="style/img/logo-name.svg" alt="Logo name" id="logoName">
         </div>
     </header>
 
     <main class="bg-black">
-        <h1 class="text-center">Seja bem vindo ao CatRate</h1>
-        <p class="text-center pb-4" style="font-size: 25px">precifique o valor do seu serviço preenchendo os campos abaixo</p>
-        <div class="container bg-dark rounded-5">
-            <div class="row">
-                <div class="col">
-                    <form class="p-4" >
-                        <div class="d-flex align-items-start">
-                            <h3>Custo Fixo Mensal:</h3c>
-                            <label class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Soma de todos os custos que você tem por mês. Exemplos: aluguel, internet, assinaturas de software, alimentação, transporte.">
-                                    ?
-                            </label>
+        <h1 class="text-center" style="font-size: 2rem">Seja bem-vindo ao CatRate</h1>
+        <p class="text-center pb-2 mx-auto" style="font-size: 1.15rem">Precifique o valor do seu serviço preenchendo os campos abaixo:</p>
+        <div class="container bg-dark rounded-3 p-4" style="max-width: 1000px;">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form class="mx-auto" style="max-width: 500px;">
+                        <div class="mb-3">
+                            <div class="d-flex align-items-start">
+                                <h3>Custo Fixo Mensal:</h3>
+                                <label class="btn btn-dark ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Soma de todos os custos que você tem por mês. Exemplos: aluguel, internet, assinaturas de software, alimentação, transporte.">?</label>
+                            </div>
+                            <input type="number" class="form-control bg-secondary text-light" id="cfm" required>
                         </div>
-                        <div class="" style="width: 200px;"><input type="number" class="form-control bg-secondary text-light mx-auto" id="cfm" required></div><br>
-                        <div class="d-flex align-items-start">
-                            <h3>Horas Trabalhadas por Mês:</h3>
-                            <label class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Informe quantas horas por dia e quantos dias por semana você trabalha.">
-                                ?
-                            </label>
+
+                        <div class="mb-3">
+                            <div class="d-flex align-items-start">
+                                <h3>Horas Trabalhadas por Mês:</h3>
+                                <label class="btn btn-dark ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Informe quantas horas por dia e quantos dias por semana você trabalha.">?</label>
+                            </div>
+                            <label for="hpd">Horas trabalhadas por dia:</label>
+                            <input type="number" class="form-control bg-secondary text-light" id="hpd" min="1" max="24" required>
+                            <label for="dps">Dias trabalhados por semana:</label>
+                            <input type="number" class="form-control bg-secondary text-light" id="dps" min="1" max="7" required>
                         </div>
-                        <label for="hpd">Horas trabalhadas por dia: </label>
-                        <div class="" style="width: 200px;"><input type="number" class="form-control bg-secondary text-light" id="hpd" min="1" max="24" required></div>
-                        <label for="dps">Dias trabalhados por semana: </label>
-                        <div class="" style="width: 200px;"><input type="number" class="form-control bg-secondary text-light" id="dps" min="1" max="7" required></div><br>
-                        <div class="d-flex align-items-start">
-                            <h3>Custo por Hora Variável:</h3>
-                            <label class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Custos que você teve por hora no serviço.">
-                                ?
-                            </label>
+
+                        <div class="mb-3">
+                            <div class="d-flex align-items-start">
+                                <h3>Custo por Hora Variável:</h3>
+                                <label class="btn btn-dark ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Custos que você teve por hora no serviço.">?</label>
+                            </div>
+                            <label for="etc">Estimativa de custos para o serviço:</label>
+                            <input type="number" class="form-control bg-secondary text-light" id="etc" min="0" required>
+                            <label for="he">Horas Estimadas para o serviço:</label>
+                            <input type="number" class="form-control bg-secondary text-light" id="he" min="1" required>
                         </div>
-                        <label for="etc">Estimativa de custos para o serviço: </label>
-                        <div class="" style="width: 200px;"><input type="number" class="form-control bg-secondary text-light" id="etc" min="0" required></div>
-                        <label for="he">Horas Estimadas para o serviço: </label>
-                        <div class="" style="width: 200px;"><input type="number" class="form-control bg-secondary text-light" id="he" min="1" required></div><br>
-                        <div class="d-flex align-items-start">
-                            <h3>Margem de Lucro:</h3>
-                            <label class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Valor adicional em porcentagem garantirá que você está lucrando além dos custos.">
-                                ?
-                            </label>
+
+                        <div class="mb-3">
+                            <div class="d-flex align-items-start">
+                                <h3>Margem de Lucro:</h3>
+                                <label class="btn btn-dark ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Valor adicional em porcentagem garantirá que você está lucrando além dos custos.">?</label>
+                            </div>
+                            <input type="number" class="form-control bg-secondary text-light" id="ml" min="0" max="100" required>
                         </div>
-                        <div class="" style="width: 200px;"><input type="number" class="form-control bg-secondary text-light" id="ml" placeholder="" min="0" max="100" required></div><br>
-                        <div class="d-flex align-items-start">
-                            <h3>Taxa de Imposto (se aplicavel):</h3>
-                            <label class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Dependendo do seu regime tributário (MEI, Simples Nacional, etc.), você precisa incluir o total dos impostos no preço final, incluindo as taxas da plataforma.">
-                                ?
-                            </label>
+
+                        <div class="mb-3">
+                            <div class="d-flex align-items-start">
+                                <h3>Taxa de Imposto (se aplicável):</h3>
+                                <label class="btn btn-dark ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Dependendo do seu regime tributário (MEI, Simples Nacional, etc.), você precisa incluir o total dos impostos no preço final, incluindo as taxas da plataforma.">?</label>
+                            </div>
+                            <input type="number" class="form-control bg-secondary text-light" min="0" max="100" id="ti">
                         </div>
-                        <div class="" style="width: 200px;"><input type="number" class="form-control bg-secondary text-light" placeholder="" min="0" max="100" id="ti"></div>
-                        <br>
-                        <div class="" style="width: 200px;"><button type="button" class="btn btn-outline-info form-control" onclick="calculated()" id="calculate"> calcular </button></div>
+
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-outline-info form-control" onclick="calculated()" id="calculate">Calcular</button>
+                        </div>
                     </form>
                 </div>
-                <div class="col mx-auto my-auto">
-                    <h1 class="mx-auto p-2" style="width: 650px;" id="resulttitle"></h1>
-                    <p class="mx-auto p-2" style="width: 650px; font-size: 30px" id="result"></p>
+                <div class="col-md-6 mx-auto my-auto">
+                    <h2 class="mx-auto p-2" style="font-size: 2rem" id="resulttitle"></h2>
+                    <p class="mx-auto p-2" style="font-size: 1.8rem" id="result"></p>
                 </div>
             </div>
+        </div>
     </main>
 
-    <footer class="text-center bg-black p-2">
+    <footer class="text-center bg-black p-3">
         <div class="container">
-            <p style="font-size: 15px;">Desenvolvido por <a href="https://github.com/davisabtos" target="_blank">Davi dos Santos</a></p>
+            <p style="font-size: 1.25rem; font-weight: 500;">Desenvolvido por <a href="https://github.com/davisabtos" target="_blank" class="text-decoration-none">Davi dos Santos</a></p>
+            <p style="font-size: 1rem; font-weight: 500;">Este projeto é open-source e está disponível no <a href="https://github.com/davisabtos/calculadora-orcamentos" target="_blank" class="text-decoration-none">GitHub</a></p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
     <script src="script/script.js"></script>
+</body>
 </html>
