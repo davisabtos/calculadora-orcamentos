@@ -22,7 +22,7 @@ function calculated() {
     if (result <= 0) {
         document.getElementById("resulttitle").innerHTML = "Erro";
     } else if(result > 0) {
-        document.getElementById("resulttitle").innerHTML = "O valor a cobrar pelo seu serviço será:";
+        document.getElementById("resulttitle").innerHTML = "Uma sugestão de valor a cobrar pelo seu serviço seria + ou - :";
         document.getElementById("result").innerHTML = "R$ " + result.toFixed(2); 
     }
 }
